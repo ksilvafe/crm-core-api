@@ -1,4 +1,4 @@
-import { CommonEntityInterface } from "src/common/interfaces/common-entity.interface";
+import { CommonEntityInterface } from "src/shared/common/interfaces/common-entity.interface";
 
 export interface UserInterface extends CommonEntityInterface {
   name?: string;
