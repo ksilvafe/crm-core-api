@@ -5,6 +5,7 @@ export interface UserInterface extends CommonEntityInterface {
   email?: string;
   password?: string;
   salt?: string;
+  phoneNumber?: string;
   isActive?: boolean;
   resetToken?: string | null;
   resetTokenExp?: Date | null;

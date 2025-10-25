@@ -18,6 +18,9 @@ export class User extends CommonEntity implements UserInterface {
   @Column({ type: 'text', nullable: true, default: null })
   salt: string;
 
+  @Column({ type: 'text', nullable: true })
+  phoneNumber: string;
+
   @Column({ default: true, nullable: false })
   isActive: boolean;
 
