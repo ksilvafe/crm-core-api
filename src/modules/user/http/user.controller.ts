@@ -10,14 +10,16 @@ import {
 import { UserService } from '../core/service/user.service'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
+import { UserDto } from './dto/user.dto';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  async create(createUserDto: CreateUserDto): Promise<UserDto> {
+    const user = await this.userService.create(createUserDto);
+    return user;
   }
 
   @Get()
