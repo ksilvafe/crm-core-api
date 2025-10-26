@@ -7,6 +7,8 @@ import { jwtConfig } from './config/jwt-config'
 import sampleConfig from './config/sample.config'
 import { typeormConfig } from './config/typeorm.config'
 import { AuthModule } from './modules/auth/auth.module'
+import { LeadModule } from './modules/pipeline/lead/lead.module'
+import { PipelineModule } from './modules/pipeline/pipeline.module'
 import { RoleModule } from './modules/role/role.module'
 import { UserModule } from './modules/user/user.module'
 import { UserRoleModule } from './modules/user-role/user-role.module'
@@ -25,6 +27,8 @@ import { UserRoleModule } from './modules/user-role/user-role.module'
     RoleModule,
     UserRoleModule,
     AuthModule,
+    PipelineModule,
+    LeadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
