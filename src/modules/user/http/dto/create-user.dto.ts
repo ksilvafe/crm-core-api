@@ -4,7 +4,7 @@ import {
   PartialType,
   PickType,
 } from '@nestjs/swagger'
-import { IsStrongPassword } from 'class-validator'
+import { IsStrongPassword } from 'src/shared/common/decorators/is-strong-password'
 import { USER_PASSWORD_MIN_LENGTH } from '../../core/constants/user.constants'
 import { UserCreatableInterface } from '../../core/interfaces/user-creatable.interface'
 import { UserDto } from './user.dto'

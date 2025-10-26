@@ -1,20 +1,16 @@
+import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
+import { swagger } from './shared/common/doc/swagger'
+import { serverConfig } from './shared/config/server.config'
 
 async function bootstrap() {
+  const appServerConfig = serverConfig()
   const app = await NestFactory.create(AppModule)
+  app.useGlobalPipes(new ValidationPipe())
 
-  const docOptions = new DocumentBuilder()
-    .setTitle('API Documentation')
-    .setVersion('1.0')
-    .addBearerAuth()
-    .build()
-
-  const document = SwaggerModule.createDocument(app, docOptions)
-
-  SwaggerModule.setup('docs', app, document)
-
-  await app.listen(process.env.PORT ?? 3000)
+  swagger(app, appServerConfig.environment)
+  await app.listen(3000)
 }
 bootstrap()
