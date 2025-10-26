@@ -1,6 +1,6 @@
+import { CommonEntity } from 'src/common/common.entity'
 import { Role } from 'src/modules/role/core/entities/role.entity'
 import { UserRole } from 'src/modules/user-role/core/entities/user-role.entity'
-import { CommonEntity } from 'src/shared/common/common.entity'
 import {
   Column,
   Entity,
@@ -38,8 +38,11 @@ export class User extends CommonEntity implements UserInterface {
   @Column({ type: 'timestamp', nullable: true })
   resetTokenExp: Date | null
 
-  @OneToMany(() => UserRole, (userRole) => userRole.user)
-  userRoles?: UserRole[];
+  @OneToMany(
+    () => UserRole,
+    (userRole) => userRole.user,
+  )
+  userRoles?: UserRole[]
 
   // @ManyToMany(
   //   () => Role,

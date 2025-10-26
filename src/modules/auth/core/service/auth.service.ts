@@ -1,12 +1,12 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common'
 import type { ConfigType } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
+import { jwtConfig } from 'src/config/jwt-config'
 import { UserService } from 'src/modules/user/core/service/user.service'
 import { UserDto } from 'src/modules/user/http/dto/user.dto'
-import { jwtConfig } from 'src/shared/config/jwt-config'
-import { AuthRefreshDto } from './dto/auth-refresh.dto'
-import { AuthResponseDto } from './dto/auth-reponse.dto'
-import { JwtPayload } from './interfaces/jwt-payload.interface'
+import { AuthRefreshDto } from '../../http/dto/auth-refresh.dto'
+import { AuthResponseDto } from '../../http/dto/auth-reponse.dto'
+import { JwtPayload } from '../interfaces/jwt-payload.interface'
 
 @Injectable()
 export class AuthService {
@@ -17,10 +17,7 @@ export class AuthService {
     private config: ConfigType<typeof jwtConfig>,
   ) {}
 
-  async validateUser(
-    email: string,
-    password: string,
-  ): Promise<UserDto | null> {
+  async validateUser(email: string, password: string): Promise<UserDto | null> {
     const user = await this.userService.validateUserPassword(email, password)
     if (!user || !user.isActive) null
     return user

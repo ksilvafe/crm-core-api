@@ -3,13 +3,13 @@ import { ConfigModule, ConfigType } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { AuthModule } from './auth/auth.module'
+import { jwtConfig } from './config/jwt-config'
+import sampleConfig from './config/sample.config'
+import { typeormConfig } from './config/typeorm.config'
+import { AuthModule } from './modules/auth/auth.module'
 import { RoleModule } from './modules/role/role.module'
 import { UserModule } from './modules/user/user.module'
 import { UserRoleModule } from './modules/user-role/user-role.module'
-import { jwtConfig } from './shared/config/jwt-config'
-import sampleConfig from './shared/config/sample.config'
-import { typeormConfig } from './shared/config/typeorm.config'
 
 @Module({
   imports: [

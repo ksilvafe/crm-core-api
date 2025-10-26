@@ -12,7 +12,7 @@ import {
   ApiOkResponse,
   ApiOperation,
 } from '@nestjs/swagger'
-import { IsUUIDParam } from 'src/shared/common/decorators/is-uuid-params'
+import { IsUUIDParam } from 'src/common/decorators/is-uuid-params'
 import { UserService } from '../core/service/user.service'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'

@@ -11,10 +11,10 @@ import {
 } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { UserDto } from 'src/modules/user/http/dto/user.dto'
-import { AuthService } from './auth.service'
-import { AuthUser } from './decorators/auth-user.decorator'
-import { JwtAuthGuard } from './guards/jwt-auth-guards'
-import { LocalAuthGuard } from './guards/local-auth-guard'
+import { AuthUser } from '../core/decorators/auth-user.decorator'
+import { JwtAuthGuard } from '../core/guards/jwt-auth-guards'
+import { LocalAuthGuard } from '../core/guards/local-auth-guard'
+import { AuthService } from '../core/service/auth.service'
 
 @Controller('auth')
 export class AuthController {

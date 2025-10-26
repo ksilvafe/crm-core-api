@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Expose, Type } from 'class-transformer'
 import { IsBoolean, IsEmail, IsString, MaxLength, MinLength } from 'class-validator'
-import { CommonEntityDto } from 'src/shared/common/dto/common-entity.dto'
+import { CommonEntityDto } from 'src/common/dto/common-entity.dto'
 import {
   USER_EMAIL_MAX_LENGTH,
   USER_EMAIL_MIN_LENGTH,

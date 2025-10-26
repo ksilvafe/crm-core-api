@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { plainToInstance } from 'class-transformer'
-import { CryptUtil } from 'src/shared/common/utils/crypt.util'
+import { CryptUtil } from 'src/common/utils/crypt.util'
 import { Repository } from 'typeorm'
 import { CreateUserDto } from '../../http/dto/create-user.dto'
 import { UpdateUserDto } from '../../http/dto/update-user.dto'
