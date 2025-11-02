@@ -36,14 +36,10 @@ export class UserService {
   }
 
   private async findById(id: string): Promise<User> {
-    // Get without relationships
-    const user = await this.repo.findOneBy({
-      id,
-    })
-    // const user = await this.repo.findOne({
-    //   where: { id },
-    //   relations: ['roles'],
-    // });
+    const user = await this.repo.findOne({
+      where: { id },
+      relations: ['userRoles.role'],
+    });
     if (!user) throw new NotFoundException()
     return user
   }

@@ -23,7 +23,6 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  @Post()
   @ApiOperation({
     operationId: 'user_create',
     description: 'Endpoint to create a new user',
