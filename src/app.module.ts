@@ -1,22 +1,34 @@
 import { Module } from '@nestjs/common'
+import { ConfigModule, ConfigType } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { jwtConfig } from './config/jwt-config'
+import sampleConfig from './config/sample.config'
+import { typeormConfig } from './config/typeorm.config'
+import { AuthModule } from './modules/auth/auth.module'
+import { LeadModule } from './modules/pipeline/lead/lead.module'
+import { PipelineModule } from './modules/pipeline/pipeline.module'
+import { RoleModule } from './modules/role/role.module'
 import { UserModule } from './modules/user/user.module'
+import { UserRoleModule } from './modules/user-role/user-role.module'
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      url: 'postgresql://local_user:local_password@localhost:5432/local_db',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      subscribers: [],
-      synchronize: true,
-      autoLoadEntities: true,
-      logger: 'file',
-      logging: true,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [typeormConfig, sampleConfig, jwtConfig],
     }),
-    UserModule
+    TypeOrmModule.forRootAsync({
+      inject: [typeormConfig.KEY],
+      useFactory: async (config: ConfigType<typeof typeormConfig>) => config,
+    }),
+    UserModule,
+    RoleModule,
+    UserRoleModule,
+    AuthModule,
+    PipelineModule,
+    LeadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
