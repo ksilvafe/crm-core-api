@@ -1,8 +1,9 @@
 import { CommonEntity } from 'src/common/common.entity'
-import { Column, JoinColumn, ManyToOne, OneToMany } from 'typeorm'
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm'
 import { Lead } from '../../lead/core/entities/lead.entity'
 import { Pipeline } from './pipeline.entity'
 
+@Entity()
 export class Stage extends CommonEntity {
   @Column({ type: 'uuid', nullable: false })
   pipeline_id: string

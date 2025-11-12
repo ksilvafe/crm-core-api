@@ -13,13 +13,13 @@ export class Pipeline extends CommonEntity implements PipelineInterface {
   description!: string
 
   @Column({ default: false, nullable: false })
-  isDefault: boolean
+  isDefault!: boolean
 
   @Column({ default: true, nullable: false })
-  isActive: boolean
+  isActive!: boolean
 
   @Column({ type: 'uuid', nullable: true })
-  created_by: string
+  createdBy!: string
 
   @OneToMany(
     () => Stage,
