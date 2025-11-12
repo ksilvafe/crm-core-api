@@ -1,8 +1,7 @@
-import { JwtModuleOptions } from "@nestjs/jwt";
-
+import { JwtModuleOptions } from '@nestjs/jwt'
 
 export interface JwtConfigInterface {
-  secret: string;
-  access: JwtModuleOptions;
-  refresh: JwtModuleOptions;
+  secret: string
+  access: JwtModuleOptions
+  refresh: JwtModuleOptions
 }

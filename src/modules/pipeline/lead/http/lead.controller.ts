@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common'
+import { Body, Controller, Get, Patch, Post } from '@nestjs/common'
 import {
   ApiNotFoundResponse,
   ApiOkResponse,
@@ -55,19 +47,18 @@ export class LeadController {
     description: 'Was not able to find user',
   })
   async findOne(@IsUUIDParam('id') id: string) {
-   return await this.leadService.finfOne(id)
+    return await this.leadService.finfOne(id)
   }
 
-   @ApiOperation({
-      operationId: 'lead_update',
-      description: 'Endpoint to update user',
-    })
-    @Patch(':id')
-    async update(
-      @IsUUIDParam('id') id: string,
-      @Body() updateLeadDto: UpdateLeadDto
-    ) {
-      return await this.leadService.update(id, updateLeadDto);
-    }
-
+  @ApiOperation({
+    operationId: 'lead_update',
+    description: 'Endpoint to update user',
+  })
+  @Patch(':id')
+  async update(
+    @IsUUIDParam('id') id: string,
+    @Body() updateLeadDto: UpdateLeadDto,
+  ) {
+    return await this.leadService.update(id, updateLeadDto)
+  }
 }

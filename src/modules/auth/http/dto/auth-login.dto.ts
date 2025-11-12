@@ -1,7 +1,7 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Exclude, Expose } from "class-transformer";
-import { IsString } from "class-validator";
-import { AuthLoginInterface } from "../../core/interfaces/auth-login.interface";
+import { ApiProperty } from '@nestjs/swagger'
+import { Exclude, Expose } from 'class-transformer'
+import { IsString } from 'class-validator'
+import { AuthLoginInterface } from '../../core/interfaces/auth-login.interface'
 
 @Exclude()
 export class AuthLoginDto implements AuthLoginInterface {
@@ -11,7 +11,7 @@ export class AuthLoginDto implements AuthLoginInterface {
     description: 'Email',
   })
   @IsString()
-  email!: string;
+  email!: string
 
   @Expose()
   @ApiProperty({
@@ -19,5 +19,5 @@ export class AuthLoginDto implements AuthLoginInterface {
     description: 'Password',
   })
   @IsString()
-  password!: string;
+  password!: string
 }

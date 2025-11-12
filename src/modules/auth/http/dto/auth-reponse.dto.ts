@@ -1,14 +1,14 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger'
 
 export class AuthResponseDto {
   @ApiProperty()
-  readonly accessToken: string;
+  readonly accessToken: string
 
   @ApiProperty()
-  readonly refreshToken: string;
+  readonly refreshToken: string
 
   constructor(accessToken: string, refreshToken: string) {
-    this.accessToken = accessToken;
-    this.refreshToken = refreshToken;
+    this.accessToken = accessToken
+    this.refreshToken = refreshToken
   }
 }

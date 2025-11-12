@@ -1,6 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Expose, Type } from 'class-transformer'
-import { IsBoolean, IsEmail, IsString, MaxLength, MinLength } from 'class-validator'
+import {
+  IsBoolean,
+  IsEmail,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator'
 import { CommonEntityDto } from 'src/common/dto/common-entity.dto'
 import {
   USER_EMAIL_MAX_LENGTH,
@@ -25,7 +31,7 @@ export class UserDto
   @MaxLength(USER_NAME_MAX_LENGTH)
   @Expose()
   name!: string
-    @ApiProperty({
+  @ApiProperty({
     title: 'Email',
     description: 'The email user.',
     minLength: USER_EMAIL_MIN_LENGTH,
@@ -35,7 +41,7 @@ export class UserDto
   @MinLength(USER_EMAIL_MIN_LENGTH)
   @MaxLength(USER_EMAIL_MAX_LENGTH)
   @Expose()
-  email!: string;
+  email!: string
 
   @ApiProperty({
     title: 'Phone Number',
@@ -43,7 +49,7 @@ export class UserDto
   })
   @IsString()
   @Expose()
-  phoneNumber!: string;
+  phoneNumber!: string
 
   @ApiProperty({
     title: 'Active',
@@ -52,5 +58,5 @@ export class UserDto
   @Expose()
   @IsBoolean()
   @Type(() => Boolean)
-  isActive!: boolean;
+  isActive!: boolean
 }

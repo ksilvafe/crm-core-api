@@ -1,6 +1,6 @@
-import { registerAs } from "@nestjs/config";
-import { SERVER_CONFIG } from "../common/constants";
-import { ServerConfigInterface } from "../common/interfaces/server-config.interface";
+import { registerAs } from '@nestjs/config'
+import { SERVER_CONFIG } from '../common/constants'
+import { ServerConfigInterface } from '../common/interfaces/server-config.interface'
 
 export const serverConfig = registerAs(
   SERVER_CONFIG,
@@ -13,5 +13,5 @@ export const serverConfig = registerAs(
         ? process.env.CORS_ORIGIN
         : 'http://localhost:3000',
     },
-  })
-);
+  }),
+)

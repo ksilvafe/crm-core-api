@@ -1,7 +1,7 @@
-import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.interface";
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface'
 
 export interface ServerConfigInterface {
-  environment: string;
-  port: number;
-  cors?: CorsOptions;
+  environment: string
+  port: number
+  cors?: CorsOptions
 }

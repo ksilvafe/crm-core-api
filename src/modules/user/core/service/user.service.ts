@@ -39,7 +39,7 @@ export class UserService {
     const user = await this.repo.findOne({
       where: { id },
       relations: ['userRoles.role'],
-    });
+    })
     if (!user) throw new NotFoundException()
     return user
   }

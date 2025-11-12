@@ -68,9 +68,9 @@ export class UserController {
   @Patch(':id')
   async update(
     @IsUUIDParam('id') id: string,
-    @Body() updateUserDto: UpdateUserDto
+    @Body() updateUserDto: UpdateUserDto,
   ) {
-    return await this.userService.update(id, updateUserDto);
+    return await this.userService.update(id, updateUserDto)
   }
 
   @ApiOperation({
@@ -79,6 +79,6 @@ export class UserController {
   })
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    return await this.userService.remove(id);
+    return await this.userService.remove(id)
   }
 }

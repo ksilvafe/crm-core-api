@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Exclude, Expose } from "class-transformer";
+import { ApiProperty } from '@nestjs/swagger'
+import { Exclude, Expose } from 'class-transformer'
 
 @Exclude()
 export class CommonEntityDto {
@@ -10,7 +10,7 @@ export class CommonEntityDto {
     description: 'The primary key of the resource.',
   })
   @Expose()
-  id!: string;
+  id!: string
 
   @ApiProperty({
     type: 'string',
@@ -19,7 +19,7 @@ export class CommonEntityDto {
     description: 'The date and time at which the resource was created.',
   })
   @Expose()
-  createdAt!: Date;
+  createdAt!: Date
 
   @ApiProperty({
     type: 'string',
@@ -28,5 +28,5 @@ export class CommonEntityDto {
     description: 'The date and time at which the resource was last updated.',
   })
   @Expose()
-  updatedAt!: Date;
+  updatedAt!: Date
 }

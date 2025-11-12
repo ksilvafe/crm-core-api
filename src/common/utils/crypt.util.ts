@@ -1,20 +1,20 @@
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt'
 
 export abstract class CryptUtil {
   static async generateSalt(): Promise<string> {
-    return await bcrypt.genSalt();
+    return await bcrypt.genSalt()
   }
 
   static async hashPassword(password: string, salt: string): Promise<string> {
-    return await bcrypt.hash(password, salt);
+    return await bcrypt.hash(password, salt)
   }
 
   static async validatePassword(
     passwordPlain: string,
     passwordCrypt: string,
-    salt: string
+    salt: string,
   ): Promise<boolean> {
-    const hash = await this.hashPassword(passwordPlain, salt);
-    return hash === passwordCrypt;
+    const hash = await this.hashPassword(passwordPlain, salt)
+    return hash === passwordCrypt
   }
 }

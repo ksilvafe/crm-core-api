@@ -1,6 +1,6 @@
-import { registerAs } from "@nestjs/config";
-import { JWT_MODULE_CONFIG } from "../common/constants";
-import { JwtConfigInterface } from "../common/interfaces/jwt-config.interface";
+import { registerAs } from '@nestjs/config'
+import { JWT_MODULE_CONFIG } from '../common/constants'
+import { JwtConfigInterface } from '../common/interfaces/jwt-config.interface'
 
 export const jwtConfig = registerAs(
   JWT_MODULE_CONFIG,
@@ -16,5 +16,5 @@ export const jwtConfig = registerAs(
         expiresIn: Number(process.env.JWT_REFRESH_EXPIRES) || '1y',
       },
     },
-  })
-);
+  }),
+)

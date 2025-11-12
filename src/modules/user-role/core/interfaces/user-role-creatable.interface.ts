@@ -1,4 +1,4 @@
 export interface UserRoleCreatableInterface {
-  userId: string;
-  roleId: string;
+  userId: string
+  roleId: string
 }

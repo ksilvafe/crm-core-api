@@ -1,4 +1,8 @@
-import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common'
+import {
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { plainToInstance } from 'class-transformer'
 import { Repository } from 'typeorm'
@@ -25,17 +29,17 @@ export class LeadService {
 
   public async findAll(): Promise<LeadDto[]> {
     const leads = await this.lrp.find({
-    // relations: ['pipeline', 'status'],
+      // relations: ['pipeline', 'status'],
     })
     return plainToInstance(LeadDto, leads)
   }
 
   public async findById(id: string): Promise<Lead> {
-   const lead = await this.lrp.findOne({
-    where: { id},
-    // relations: [''],
-   });
-   if (!lead) throw new NotFoundException()
+    const lead = await this.lrp.findOne({
+      where: { id },
+      // relations: [''],
+    })
+    if (!lead) throw new NotFoundException()
     return lead
   }
 

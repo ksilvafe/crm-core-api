@@ -1,6 +1,12 @@
 import { BadRequestException } from '@nestjs/common'
 import { CryptUtil } from 'src/common/utils/crypt.util'
-import { EntitySubscriberInterface, Equal, EventSubscriber, FindOperator, Not } from 'typeorm'
+import {
+  EntitySubscriberInterface,
+  Equal,
+  EventSubscriber,
+  FindOperator,
+  Not,
+} from 'typeorm'
 import { InsertEvent, UpdateEvent } from 'typeorm/browser'
 import { User } from './core/entities/user.entity'
 
@@ -15,8 +21,8 @@ export class UserSubscribe implements EntitySubscriberInterface<User> {
   }
 
   async beforeUpdate(event: UpdateEvent<User>) {
-    await this._checkEmailUniqueness(event);
-    await this._hashUpdatedPassword(event);
+    await this._checkEmailUniqueness(event)
+    await this._hashUpdatedPassword(event)
   }
 
   async _hashPassword(user: User) {
@@ -33,23 +39,23 @@ export class UserSubscribe implements EntitySubscriberInterface<User> {
   }
 
   async _hashUpdatedPassword(event: UpdateEvent<User>) {
-    const user = event.entity as User;
+    const user = event.entity as User
 
     const currentRecord = await event.manager.findOne(User, {
       where: {
         id: user.id,
       },
-    });
+    })
 
     if (
       currentRecord?.password &&
       user?.password &&
       user.password !== currentRecord.password
     ) {
-      await this._hashPassword(user);
+      await this._hashPassword(user)
     }
 
-    return;
+    return
   }
 
   async _checkEmailUniqueness(event: InsertEvent<User> | UpdateEvent<User>) {

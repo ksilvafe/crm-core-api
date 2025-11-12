@@ -1,4 +1,4 @@
-import { HttpStatus, Param, ParseUUIDPipe } from '@nestjs/common';
+import { HttpStatus, Param, ParseUUIDPipe } from '@nestjs/common'
 
 export function IsUUIDParam(property: string): ParameterDecorator {
   return Param(
@@ -9,8 +9,8 @@ export function IsUUIDParam(property: string): ParameterDecorator {
         return {
           statusCode: 400,
           message: 'This is not a valid id',
-        };
+        }
       },
-    })
-  );
+    }),
+  )
 }

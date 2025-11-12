@@ -1,3 +1,4 @@
-import { LeadInterface } from "./lead-interface";
+import { LeadInterface } from './lead-interface'
 
-export interface LeadCreatableInterface extends Pick<LeadInterface, 'name'| 'email' | 'phoneNumber'> {}
+export interface LeadCreatableInterface
+  extends Pick<LeadInterface, 'name' | 'email' | 'phoneNumber'> {}

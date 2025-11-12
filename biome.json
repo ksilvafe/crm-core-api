@@ -110,8 +110,8 @@
       "attributePosition": "auto",
       "bracketSpacing": true
     },
-     "parser": {
-        "unsafeParameterDecoratorsEnabled": true
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     },
     "globals": ["exports"]
   },
